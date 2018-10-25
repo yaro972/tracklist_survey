@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
+import Tracklist from './components/Tracklist.component'; 
 
 const TRACKS = [
   {
@@ -126,35 +127,26 @@ class App extends Component {
   }
   
   sortTracks(trackList){
-    console.log(trackList);
-    // return trackList;
     return trackList.sort((currentTrack, nextTrack) => {
       return nextTrack.votes.count  - currentTrack.votes.count;
     });
   }
   
-  
-  showTrack(){
-    return this.state.tracks.map(track => {
-    return <div key={track.id} onClick={(e) => this.handleClickVoted(e, track.id) }> 
-    <p>{track.name}</p>
-    <p>{track.duration}</p>
-    <p>{track.artist}</p>
-    <p>{track.adder.name }</p>
-    <img src={track.adder.pictureUrl} alt="Adder picture"/>
-    <img src={track.pictureUrl} alt="Track album picture" />
-    <p>{track.votes.count}</p>
-    </div>
-    })
-  }
-  
   render() {
+    
+    let sortedTrack = this.state.tracks.map(track => { 
+      return <Tracklist track={track} handleClickVoted={this.handleClickVoted} />
+    })
+    
     return (
       <div className="App">
         <header className="App-header">
           
           <h2>Liste de pistes</h2>
-          {this.showTrack(TRACKS)}
+          {/* {this.showTrack(TRACKS)} */}
+          {/* <Tracklist tracks={TRACKS} handleClickVoted={this.handleClickVoted} /> */}
+          
+          {sortedTrack}
           
         </header>
       </div>
