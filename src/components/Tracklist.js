@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Tracklist extends Component {
     render() {
         return (
-            <div key={this.props.track.id} onClick={(e) => this.props.handleClickVoted(e, this.props.track.id) }> 
+            <div onClick={(e) => this.props.handleClickVoted(e, this.props.track.id) }> 
                 <p>{this.props.track.name}</p>
                 <p>{this.props.track.duration}</p>
                 <p>{this.props.track.artist}</p>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
-import './App.css';
-import Tracklist from './components/Tracklist.component'; 
+import '../styles/App.css';
+import Tracklist from './Tracklist'; 
 
-const TRACKS = [
+const API_TRACKS = [
   {
     "id": 1,
     "name": "Beast Of Burden",
@@ -91,6 +91,9 @@ const TRACKS = [
   }
 ]
 
+// Utiliser axios
+// const API_TRACKS = 'http://localhost:3000/tracklist.json';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -103,8 +106,10 @@ class App extends Component {
   }
   
   componentDidMount(){
+    console.log(API_TRACKS)
+    
     this.setState({
-      tracks: TRACKS
+      tracks: API_TRACKS
     })
   }
   
@@ -135,7 +140,7 @@ class App extends Component {
   render() {
     
     let sortedTrack = this.state.tracks.map(track => { 
-      return <Tracklist track={track} handleClickVoted={this.handleClickVoted} />
+      return <Tracklist track={track} handleClickVoted={this.handleClickVoted} key={track.id}/>
     })
     
     return (
