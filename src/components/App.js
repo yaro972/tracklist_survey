@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import '../styles/App.css';
-import Tracklist from './Tracklist'; 
+import Track from './track'; 
 
 const API_TRACKS = [
   {
@@ -139,8 +139,8 @@ class App extends Component {
   
   render() {
     
-    let sortedTrack = this.state.tracks.map(track => { 
-      return <Tracklist track={track} handleClickVoted={this.handleClickVoted} key={track.id}/>
+    let sortedPlaylist = this.state.tracks.map(track => { 
+      return <Track track={track} handleClickVoted={this.handleClickVoted} key={track.id}/>
     })
     
     return (
@@ -148,10 +148,7 @@ class App extends Component {
         <header className="App-header">
           
           <h2>Liste de pistes</h2>
-          {/* {this.showTrack(TRACKS)} */}
-          {/* <Tracklist tracks={TRACKS} handleClickVoted={this.handleClickVoted} /> */}
-          
-          {sortedTrack}
+          {sortedPlaylist}
           
         </header>
       </div>
