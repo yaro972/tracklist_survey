@@ -6,14 +6,14 @@ import Track from './track';
 const API_TRACKS = [
   {
     "id": 1,
-    "name": "Beast Of Burden",
+    "name": "Bohemian Rhapsody",
     "duration": 211,
     "priority": false,
-    "artist": "The Rolling Stones",
+    "artist": "TQueen",
     "adder": {
       "id": 1,
       "name": "kant",
-      "pictureUrl": "https://res.cloudinary.com/jukeo-net/image/upload/ano-b2_eezggd"
+      "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/51an%2Buz6PAL.jpg"
     },
     "pictureUrl": "https://i.scdn.co/image/adcf79a6adae4e1a44d0e34860cc103e28ee4372",
     "votes": {
@@ -23,14 +23,14 @@ const API_TRACKS = [
   },
   {
     "id": 2,
-    "name": "Purple Haze",
+    "name": "Stairway To Heaven",
     "duration": 229,
     "priority": false,
-    "artist": "Jimi Hendrix",
+    "artist": "LED ZEPPELIN",
     "adder": {
       "id": 1,
       "name": "kant",
-      "pictureUrl": "https://res.cloudinary.com/jukeo-net/image/upload/ano-b2_eezggd"
+      "pictureUrl": "https://www.guitarpart.fr/wp-content/uploads/2016/06/Led_Zeppelin_Stairway_To_Heaven.jpg"
     },
     "pictureUrl": "https://i.scdn.co/image/1d55f445789ed89a1b8fab09c3dad117afb5fe80",
     "votes": {
@@ -40,14 +40,14 @@ const API_TRACKS = [
   },
   {
     "id": 5,
-    "name": "Nobody my body",
+    "name": "Hotel California",
     "duration": 229,
     "priority": true,
-    "artist": "Jimi Hendrix",
+    "artist": "The Eagles",
     "adder": {
       "id": 1,
       "name": "kant",
-      "pictureUrl": "https://res.cloudinary.com/jukeo-net/image/upload/ano-b2_eezggd"
+      "pictureUrl": "https://images-na.ssl-images-amazon.com/images/I/91eh6ApLnzL._SX522_.jpg"
     },
     "pictureUrl": "https://i.scdn.co/image/1d55f445789ed89a1b8fab09c3dad117afb5fe80",
     "votes": {
@@ -57,14 +57,14 @@ const API_TRACKS = [
   },
   {
     "id": 12,
-    "name": "Bleeding me",
+    "name": "Let it be",
     "duration": 229,
     "priority": false,
-    "artist": "Metallica",
+    "artist": "The Beattles",
     "adder": {
       "id": 1,
       "name": "kant",
-      "pictureUrl": "https://res.cloudinary.com/jukeo-net/image/upload/ano-b2_eezggd"
+      "pictureUrl": "https://images-eu.ssl-images-amazon.com/images/I/51h-tuE1PzL._SS500.jpg"
     },
     "pictureUrl": "https://i.scdn.co/image/1d55f445789ed89a1b8fab09c3dad117afb5fe80",
     "votes": {
@@ -74,10 +74,10 @@ const API_TRACKS = [
   },
   {
     "id": 22,
-    "name": "Rock your body",
+    "name": "Nothing Else Matters",
     "duration": 229,
     "priority": false,
-    "artist": "Justin Timberlake",
+    "artist": "Metallica",
     "adder": {
       "id": 1,
       "name": "kant",
