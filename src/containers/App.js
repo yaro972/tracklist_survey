@@ -99,25 +99,16 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      tracks: []
-    }
-
     this.handleClickVoted = this.handleClickVoted.bind(this);
   }
 
   componentDidMount() {
-    // console.log(API_TRACKS)
-
-    // this.setState({
-    //   tracks: API_TRACKS
-    // })
 
     this.props.getPlaylist();
   }
 
   increaseVote(id) {
-    return this.state.tracks.map(track => {
+    return this.props.tracks.map(track => {
       if (track.id === id) {
         track.votes.count++;
         track.votes.userVoted = true;
@@ -141,8 +132,7 @@ class App extends Component {
   }
 
   render() {
-    console.log('11111', this.props)
-    let sortedPlaylist = this.state.tracks.map(track => {
+    let sortedPlaylist = this.props.tracks.map(track => {
       return <Track track={track} handleClickVoted={this.handleClickVoted} key={track.id} />
     })
 
@@ -160,9 +150,7 @@ class App extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log("mapStateToProps", state, ownProps)
-
-  return { tracks: state.payload }
+  return { tracks: state.playlist }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

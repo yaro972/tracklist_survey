@@ -8,7 +8,6 @@ import { GET_PLAYLIST } from '../actions/action-type';
 const TracklistReducer = (state = [], action) => {
   switch (action.type) {
     case GET_PLAYLIST: {
-      console.log('2222', action)
       return action.payload;
     }
     default:

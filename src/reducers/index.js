@@ -4,8 +4,8 @@ import AsVotedReducer from './asVotedReducer';
 import TracklistReducer from './tracklist_reducers'
 
 const Reducers = combineReducers({
-  AsVotedReducer,
-  TracklistReducer
+  AsVoted: AsVotedReducer,
+  playlist: TracklistReducer
 });
 
 export default Reducers;
