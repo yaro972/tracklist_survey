@@ -3,7 +3,7 @@ import axios from 'axios';
 import { GET_PLAYLIST, ERROR_TRACKLIST, TRACK_SORTED } from './action-type';
 import { sortTracks } from '../modules/sortTracks'
 
-const API_PLAYLIST = 'http://localhost:3000/tracklist.json';
+const API_PLAYLIST = '/tracklist.json';
 
 /**
  * Get tracklist content
@@ -18,6 +18,7 @@ export function getPlaylist() {
         })
       })
       .catch(error => {
+        console.log("11111", error)
         dispatch({
           type: ERROR_TRACKLIST,
           payload: error
