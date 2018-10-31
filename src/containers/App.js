@@ -52,23 +52,16 @@ class App extends Component {
         return <Track track={track} handleClickVoted={this.handleClickVoted} key={track.id} />
       })
     } else {
-
-      console.info("2222")
       return <h3>Pas de playlist</h3>
     }
   }
 
   render() {
-    // let sortedPlaylist = this.props.tracks.map(track => {
-    //   return <Track track={track} handleClickVoted={this.handleClickVoted} key={track.id} />
-    // })
-
     return (
       <div className="App">
         <header className="App-header">
 
           <h2>Liste de pistes</h2>
-          {/* {sortedPlaylist} */}
           {this.renderPlayList()}
 
         </header>

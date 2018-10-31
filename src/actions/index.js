@@ -14,11 +14,10 @@ export function getPlaylist() {
       .then((response) => {
         dispatch({
           type: GET_PLAYLIST,
-          payload: response.data
+          payload: sortTracks(response.data)
         })
       })
       .catch(error => {
-        console.log("11111", error)
         dispatch({
           type: ERROR_TRACKLIST,
           payload: error
