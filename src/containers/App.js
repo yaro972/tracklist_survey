@@ -3,22 +3,26 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import '../styles/App.css';
-import { getPlaylist } from '../actions/index';
+import { getPlaylist, votedAction } from '../actions/index';
 import Track from './track';
 
-
+/**
+ * Main Application Class
+ */
 class App extends Component {
-  constructor(props) {
-    super(props);
 
-    this.handleClickVoted = this.handleClickVoted.bind(this);
-  }
-
+  /**
+   * Execute when comment is mounted
+   */
   componentDidMount() {
 
     this.props.getPlaylist();
   }
 
+  /**
+   * Increase the number of vote counter
+   * @param {Number} id The Id of the track
+   */
   increaseVote(id) {
     return this.props.tracks.map(track => {
       if (track.id === id) {
@@ -31,11 +35,6 @@ class App extends Component {
     )
   }
 
-  handleClickVoted(ev, data) {
-    this.setState({
-      tracks: this.sortTracks(this.increaseVote(data))
-    });
-  }
 
   sortTracks(trackList) {
     return trackList.sort((currentTrack, nextTrack) => {
@@ -49,7 +48,7 @@ class App extends Component {
 
     if (tracks.length) {
       return tracks.map(track => {
-        return <Track track={track} handleClickVoted={this.handleClickVoted} key={track.id} />
+        return <Track track={track} click={() => { this.props.votedAction(tracks, track.id) }} key={track.id} />
       })
     } else {
       return <h3>Pas de playlist</h3>
@@ -71,11 +70,24 @@ class App extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return { tracks: state.playlist }
+  console.log("&&&&", state, ownProps)
+  if (state.AsVoted.length > 0) {
+    return {
+      tracks: state.AsVoted
+    }
+  } else {
+    return {
+      tracks: state.playlist
+    }
+  }
+
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  ...bindActionCreators({ getPlaylist }, dispatch)
+  ...bindActionCreators({
+    getPlaylist,
+    votedAction
+  }, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

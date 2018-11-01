@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_PLAYLIST, ERROR_TRACKLIST, TRACK_SORTED } from './action-type';
+import { GET_PLAYLIST, ERROR_TRACKLIST, TRACK_VOTED } from './action-type';
 import { sortTracks } from '../modules/sortTracks'
 
 const API_PLAYLIST = '/tracklist.json';
@@ -26,9 +26,11 @@ export function getPlaylist() {
   }
 }
 
-export function sortTracklist(tracklist) {
+
+export function votedAction(playlist, id) {
   return {
-    type: TRACK_SORTED,
-    payload: sortTracks(tracklist)
-  };
+    type: TRACK_VOTED,
+    playlist: sortTracks(playlist),
+    id
+  }
 }

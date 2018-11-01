@@ -1,5 +1,5 @@
 
-export const TRACK_VOTED = 'AT_VOTED';
+export const TRACK_VOTED = 'TRACK_VOTED';
 export const GET_PLAYLIST = 'GET_PLAYLIST';
 export const GET_TRACKLIST = 'GET_TRACKLIST';
 export const ERROR_TRACKLIST = 'ERROR_TRACKLIST';
