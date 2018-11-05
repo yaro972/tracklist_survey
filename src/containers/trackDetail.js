@@ -6,11 +6,10 @@ import React, { Component } from 'react';
 class TrackDetail extends Component {
     render() {
         return (
-            <div>
-                <img src={this.props.track.pictureUrl} alt="Track album " className="albumPicture" />
-                <p>{this.props.track.name}</p>
-                <p>{this.props.track.duration}</p>
-                <p>{this.props.track.artist}</p>
+            <div className="twoColumns">
+                <h4 className="track-title">{this.props.track.name}</h4>
+                <p>Durée : {this.props.track.duration} min</p>
+                <p>Artiste : {this.props.track.artist}</p>
             </div>
         )
     }
