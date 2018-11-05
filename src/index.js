@@ -8,6 +8,13 @@ import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
 import Reducers from './reducers';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons'
+
+
+library.add(fas);
+
 // const store = createStore(Reducers, applyMiddleware(thunk));
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
