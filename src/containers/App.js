@@ -35,15 +35,10 @@ class App extends Component {
     )
   }
 
-
-  sortTracks(trackList) {
-    return trackList.sort((currentTrack, nextTrack) => {
-      return nextTrack.votes.count - currentTrack.votes.count;
-    });
-  }
-
+  /**
+   * Prepare the render of the playlist    * 
+   */
   renderPlayList() {
-
     const { tracks } = this.props;
 
     if (tracks.length) {
@@ -59,18 +54,21 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-
           <h2>Liste de pistes</h2>
-          {this.renderPlayList()}
-
         </header>
+        <section><ul>{this.renderPlayList()}</ul></section>
       </div>
     );
   }
 }
 
+/**
+ * Links Redux state to application props
+ * 
+ * @param {Object} state State issue from Redux
+ * @param {Object} ownProps 
+ */
 const mapStateToProps = (state, ownProps) => {
-  console.log("&&&&", state, ownProps)
   if (state.AsVoted.length > 0) {
     return {
       tracks: state.AsVoted
@@ -80,9 +78,13 @@ const mapStateToProps = (state, ownProps) => {
       tracks: state.playlist
     }
   }
-
 }
 
+/**
+ * Links Redux method to props component
+ * @param {Object} dispatch 
+ * @param {Object} ownProps 
+ */
 const mapDispatchToProps = (dispatch, ownProps) => ({
   ...bindActionCreators({
     getPlaylist,
@@ -91,5 +93,3 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
-
-// export default App;

@@ -1,13 +1,17 @@
-import React, {Component} from 'react';
+/**
+ * Component for Adder
+ */
+
+import React, { Component } from 'react';
 
 class Adder extends Component {
-    render (){
+    render() {
         return (
             <div>
-            <p>{this.props.adder.name }</p>
-                <img src={this.props.adder.pictureUrl} alt="Adder "/>
+                <p>Ajouté par :
+                <img src={this.props.adder.pictureUrl} alt="Adder" className="adder-avatar" /> {this.props.adder.name}</p>
             </div>
-            )
+        )
     }
 }
 
