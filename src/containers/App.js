@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import '../styles/App.css';
-import { getPlaylist, votedAction } from '../actions/index';
+import { getPlaylist, votedAction, sortTrackAction } from '../actions/index';
 import Track from './track';
 
 /**
@@ -42,7 +42,7 @@ class App extends Component {
     const { tracks } = this.props;
 
     if (tracks.length) {
-      return tracks.map(track => {
+      return this.props.sortTrackAction(tracks)['playlist'].map(track => {
         return <Track track={track} click={() => { this.props.votedAction(tracks, track.id) }} key={track.id} />
       })
     } else {
@@ -88,7 +88,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => ({
   ...bindActionCreators({
     getPlaylist,
-    votedAction
+    votedAction,
+    sortTrackAction
   }, dispatch)
 })
 

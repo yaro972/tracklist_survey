@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 import { GET_PLAYLIST, ERROR_TRACKLIST, TRACK_VOTED, SORT_TRACK } from './action-type';
-import { sortTracks } from '../modules/sortTracks'
 
 const API_PLAYLIST = '/tracklist.json';
 
@@ -37,7 +36,7 @@ export function getPlaylist() {
       .then((response) => {
         dispatch({
           type: GET_PLAYLIST,
-          payload: sortTracks(response.data)
+          payload: response.data
         })
       })
       .catch(error => {
@@ -59,7 +58,7 @@ export function getPlaylist() {
 export function votedAction(playlist, id) {
   return {
     type: TRACK_VOTED,
-    playlist: sortTracks(playlist),
+    playlist: playlist,
     id
   }
 }
@@ -69,7 +68,7 @@ export function votedAction(playlist, id) {
  * 
  * return {Promise<Playlist>} The loaded playlist
  */
-export function sortTrack(playlist) {
+export function sortTrackAction(playlist) {
   return {
     type: SORT_TRACK,
     playlist: playlist
