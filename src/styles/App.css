@@ -73,7 +73,7 @@ li {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 125px 125px;
   opacity: 0;
-  animation: topFadeOut .4s ease-in forwards;
+  animation: topFadeOut .5s ease-in forwards;
 }
 
 @keyframes topFadeOut {
