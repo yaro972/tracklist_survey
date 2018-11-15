@@ -103,3 +103,4 @@ typings/
 
 .c9
 .vscode/
+**/__snapshots__/
