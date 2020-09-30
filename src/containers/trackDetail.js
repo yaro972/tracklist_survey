@@ -1,7 +1,7 @@
 /**
  * Full track detail component
  */
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 class TrackDetail extends Component {
     render() {

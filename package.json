@@ -8,13 +8,13 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-redux": "^5.1.1",
-    "react-scripts": "2.0.5",
+    "react-redux": "^7.2.1",
+    "react-scripts": "^3.4.3",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "reacqt-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -29,7 +29,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.20.0",
     "react-test-renderer": "^16.6.3",
     "redux-devtools": "^3.5.0"
   }

@@ -1,11 +1,10 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './containers/App';
 
-import { createStore, applyMiddleware, compose } from 'redux';
+import {applyMiddleware, createStore} from 'redux';
 import thunk from 'redux-thunk';
 import Reducers from './reducers';
-import { Provider } from 'react-redux';
+import {Provider} from 'react-redux';
 
 beforeEach(() => {
 })
