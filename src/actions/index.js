@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_PLAYLIST, ERROR_TRACKLIST, TRACK_VOTED, SORT_TRACK } from './action-type';
+import {ERROR_TRACKLIST, GET_PLAYLIST, SORT_TRACK, TRACK_VOTED} from './action-type';
 
 const API_PLAYLIST = '/tracklist.json';
 
@@ -27,50 +27,51 @@ const API_PLAYLIST = '/tracklist.json';
 
 /**
  * Get tracklist content
- * 
+ *
  * return {Promise<Playlist>} The loaded playlist
  */
 export function getPlaylist() {
-  return function (dispatch) {
-    return axios.get(API_PLAYLIST)
-      .then((response) => {
-        dispatch({
-          type: GET_PLAYLIST,
-          payload: response.data
-        })
-      })
-      .catch(error => {
-        dispatch({
-          type: ERROR_TRACKLIST,
-          payload: error
-        })
-      });
-  }
+    return function (dispatch) {
+        return axios.get(API_PLAYLIST)
+            .then((response) => {
+                dispatch({
+                    type: GET_PLAYLIST,
+                    payload: response.data
+                })
+            })
+            .catch(error => {
+                dispatch({
+                    type: ERROR_TRACKLIST,
+                    payload: error
+                })
+            });
+    }
 }
 
 /**
  * Action when vote is made
- * 
+ *
  * @param {Playlist} playlist Playlist
- * @param {Integer} id Index number
- * @return {Object} New playlist voted
+ * @param {number} id Index number
+ * @returns {{playlist:Playlist, id:number, type: string}} New playlist voted
  */
 export function votedAction(playlist, id) {
-  return {
-    type: TRACK_VOTED,
-    playlist: playlist,
-    id
-  }
+    return {
+        type: TRACK_VOTED,
+        playlist: playlist,
+        id
+    }
 }
 
 /**
  * Sort tracklist content
- * 
- * return {Promise<Playlist>} The loaded playlist
+ *
+ * @param {Playlist} playlist La playlist
+ * @returns {{playlist: Playlist, type: string}} The loaded playlist
  */
 export function sortTrackAction(playlist) {
-  return {
-    type: SORT_TRACK,
-    playlist: playlist
-  }
+    return {
+        type: SORT_TRACK,
+        playlist: playlist
+    }
 }

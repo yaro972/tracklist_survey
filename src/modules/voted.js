@@ -1,8 +1,8 @@
 /**
  * Change voted status
- * 
- * @param {Tracks<>} playlist 
- * @param {Number} id 
+ *
+ * @param {Tracks<>} playlist The active playlist
+ * @param {Number} id Id of the track
  * @returns {Tracks<>} new playlist
  */
 export function Voted(playlist, id) {

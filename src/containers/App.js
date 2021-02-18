@@ -7,6 +7,10 @@ import {getPlaylist, sortTrackAction, votedAction} from '../actions/index';
 import Track from './track';
 
 /**
+ * @typedef {Object} State State element
+ */
+
+/**
  * Main Application Class
  */
 class App extends Component {
@@ -21,7 +25,7 @@ class App extends Component {
 
     /**
      * Increase the number of vote counter
-     * @param {Number} id The Id of the track
+     * @param {number} id The Id of the track
      */
     increaseVote(id) {
         return this.props.tracks.map(track => {
@@ -36,7 +40,8 @@ class App extends Component {
     }
 
     /**
-     * Prepare the render of the playlist    *
+     * Prepare the render of the playlist
+     * @returns {JSX.Element|*}
      */
     renderPlayList() {
         const {tracks} = this.props;
@@ -52,6 +57,10 @@ class App extends Component {
         }
     }
 
+    /**
+     * Méthode de rendu
+     * @returns {JSX.Element}
+     */
     render() {
         return (
             <div className="App">
@@ -69,8 +78,9 @@ class App extends Component {
 /**
  * Links Redux state to application props
  *
- * @param {Object} state State issue from Redux
- * @param {Object} ownProps
+ * @param {State} state State issue from Redux
+ * @param {Props} ownProps ownProps
+ * @returns {{tracks: ((function(Array=, Object): (Object.payload))|*)}|{tracks: (function(Object=, Object): (Tracks))}}
  */
 const mapStateToProps = (state, ownProps) => {
     if (state.AsVoted.length > 0) {
@@ -86,8 +96,8 @@ const mapStateToProps = (state, ownProps) => {
 
 /**
  * Links Redux method to props component
- * @param {Object} dispatch
- * @param {Object} ownProps
+ * @param {Object} dispatch Dispacther
+ * @param {Object} ownProps Props
  */
 const mapDispatchToProps = (dispatch, ownProps) => ({
     ...bindActionCreators({
